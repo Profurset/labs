@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Table</title>
+</head>
+<body>
+
+<table border="1">
+    <script>
+        // Функция для генерации случайного цвета в формате RGB
+        function generateRandomColor() {
+            const colorComponent = () => Math.round(255 * Math.random()).toString(16);
+            const r = colorComponent();
+            const g = colorComponent();
+            const b = colorComponent();
+            return '#' + r + g + b;
+        }
+
+        // Создаем таблицу и заполняем ее случайными цветами
+        const rows = 5; // Количество строк
+        const cols = 5; // Количество столбцов
+
+        for (let i = 0; i < rows; i++) {
+            document.write('<tr>');
+            for (let j = 0; j < cols; j++) {
+                const color = generateRandomColor();
+                document.write(`<td bgcolor="${color}">${color}</td>`);
+            }
+            document.write('</tr>');
+        }
+    </script>
+</table>
+
+</body>
+</html>
